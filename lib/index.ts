@@ -1,9 +1,12 @@
 import somethingElse, { something } from "./dependency.service";
 
-const value = somethingElse();
-console.log("ROOT somethingElse", value);
+const value1 = somethingElse();
+const value2 = something.method();
+console.log("ROOT somethingElse", value1);
+console.log("ROOT something.method", value2);
+
 // initialisation of module fails
-if(value === 'throw_error') {
+if(value1 === 'throw_error' || value2 === 'throw_error') {
     throw 'Some error';
 }
 
